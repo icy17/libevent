@@ -627,6 +627,8 @@ wm_acceptcb(struct evconnlistener *listener, evutil_socket_t fd,
 
 	bev = bufferevent_ssl_socket_new(
 		base, fd, ssl, BUFFEREVENT_SSL_ACCEPTING, ctx->flags);
+	
+	tt_assert(bev);
 
 	TT_BLATHER(("wm_transfer-%s(%p): accept",
 		ctx->server ? "server" : "client", bev));
